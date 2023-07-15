@@ -22,8 +22,7 @@ bool match(int w, int s)
     
     while(s < str.size() && w < wildcard.size() && (wildcard[w] == '?' || wildcard[w] == str[s]))
     {
-        w++;
-        s++;
+        return ret = match(w+1, s+1);
     }
     
     if(w == wildcard.size())
@@ -31,11 +30,8 @@ bool match(int w, int s)
 
     if(wildcard[w] == '*')
     {
-        for(int skip = 0; s +skip <= str.size(); ++skip)
-        {
-            if (match(w+1, s+skip))
-                return ret = true;
-        }
+        if(match(w+1, s) || (s < str.size() && match(w, s+1)))
+            return ret = 1;
     }
     return ret = false;
         
