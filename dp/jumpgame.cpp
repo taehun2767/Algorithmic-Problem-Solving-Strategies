@@ -12,7 +12,7 @@ const int MAX = 101;
 int board[MAX][MAX];
 int dp[MAX][MAX];
 int n;
-
+ 
 int canJumpToEndPoint(int r, int c)
 {
     if (r >= n || c >= n)
